@@ -17,7 +17,7 @@ def name_to_number (name):
         return 2
     elif (name == "lizard"):
         return 3
-    elif (name ==hel "scissors"):
+    elif (name == "scissors"):
         return 4
     else:
         print ("This name is not included in this game.\n")
