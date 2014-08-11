@@ -1,0 +1,20 @@
+这两天留了三件事没做完：直角转弯的代码，两个新机械手的机械结构，还有控制舵机的基础算法。以下是笔记记录
+
+直角转弯：
+  1. 从RobotMotor.h取不同速度转弯表，loop()空着，只执行一次
+  2. 用Makeblock的motor库前进，用MeMotor object
+  3. 程序模块化可以把function先在main里写好，再存到同个文件夹的.ino文件写! 这样就可以写基础function然后让上级call。
+  参考“Make an Arduino-Controlled Robot”里的“MeRobotRemote”
+  
+舵机控制：
+  1. 大电流的Servo motor用Servo Driver，Makeblock 库已经封装好，
+  需要创建MePort和Servo两个object，再servo.write(int angle)
+  2. 小电流的用RJ25 Adapter，直接创建MePort object，再用output.dwrite(HIGH);
+  需要用舵机PWM的控制原理来控制，需要参考CubicSolver：
+    https://git.oschina.net/makeblock/RaspberryShield/tree/master/CubicSolver
+  3. 试试理解RJ25三个接口，用它驱动直流电机版机械手和舵机版机械手
+
+建立机械结构：
+  1. 读曲柄滑块的课件，拆下舵机，单独完成整个上升臂的设计，无视空间位阻
+  2. 把它安上小车
+

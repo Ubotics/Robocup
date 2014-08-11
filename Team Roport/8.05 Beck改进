@@ -1,0 +1,15 @@
+摄像头方面：
+    正式开始处理图像，用time function计时
+        import time
+        start = time.time()
+        """ main function"""
+        
+        end = time.time()
+        print ("We used " + (str)(end - start) + " second to run this program.)
+    
+    Our best result now is 2.2 second per image. Too slow.
+    
+前进方面：
+    订到编码马达，可以在一米范围内前进误缩到5%
+    新订单已下
+    
