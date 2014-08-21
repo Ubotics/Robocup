@@ -1,0 +1,19 @@
+已安装完编码电机，然而在前行过程中会跑偏。初步观测是小车重量分配不均匀导致的，于是有如下实验：
+
+// 设置car Speed 范围为0- 255. 实验过程中从10开始每增20，观察反应。
+const int carSpeed = 10;
+
+void loop() {
+    motor0.MoveTo(360, carSpeed); // The MoveTo only turns from 0 - 360
+    motor1.MoveTo(360, -carSpeed); // 要直行必须左右轮倒转
+    delay(1000);
+    motor0.RunTurns(100, 0);
+    motor1.MoveTurns(100, 0); // 刹车
+    delay(1000);
+}
+
+结论:
+
+1.  以小车现在的电源，能在10-190速度之间运行
+2.  以10-90的速度向前跑，会很平稳
+3.  以110-190的速度，有明显向右偏的趋势
