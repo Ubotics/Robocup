@@ -18,6 +18,171 @@ void setup()
     servoBegin();
 }
 
+/*
+void loop() {
+    servoHold();
+    delay(processSpeed * 30);
+    turnAround();
+    delay(processSpeed * 10);
+}
+*/
+
+// Test program for video
+void loop() {
+    servoHold();
+    delay(processSpeed * 40);
+    moveForward(740);
+    delay(processSpeed * 10);
+    turnCountClockwise();
+    delay(processSpeed * 5);
+    moveForward(220);
+    delay(processSpeed * 8);
+    grabOneTube();
+    delay(processSpeed * 2);
+    
+    // put the first one out
+    moveBackward(260);
+    delay(processSpeed * 10);
+    turnCCW135();
+    delay(processSpeed * 3);
+    moveForward(370);
+    delay(processSpeed * 10);
+    releaseOneTube();
+    delay(processSpeed * 2);
+    moveBackward(330);
+    delay(processSpeed * 10);
+    turnCCW135();
+    delay(processSpeed * 3);
+    
+    // get the second 
+    moveForward(220);
+    delay(processSpeed * 5);
+    grabOneTube();
+    delay(processSpeed * 2);
+    moveBackward(260);
+    delay(processSpeed * 5);
+    turnCCW135();
+    delay(processSpeed * 3);
+    moveForward(370);
+    delay(processSpeed * 5);
+    releaseOneTube();
+    delay(processSpeed * 2);
+    moveBackward(330);
+    delay(processSpeed * 10);
+    turnCCW135();
+    delay(processSpeed * 3);
+    
+    // get the third 
+    moveForward(220);
+    delay(processSpeed * 5);
+    Serial1.flush();
+    while (!remoteService()) {
+      //  Serial.println("wait");      
+    }
+    grabOneTube();
+    delay(processSpeed * 2);
+    moveBackward(260);
+    delay(processSpeed * 5);
+    
+    putOneObject();
+    
+    // the head must turn to the front this time
+    
+    
+    // grab the second
+    turnCCW135();
+    delay(processSpeed * 2);
+    moveForward(220);
+    delay(processSpeed * 10);
+    Serial1.flush();
+    while (!remoteService()) {
+      //  Serial.println("wait");      
+    }
+    grabOneTube();
+    delay(processSpeed * 2);
+    moveBackward(260);
+    delay(processSpeed * 10);
+    turnCW135();
+    delay(processSpeed * 3);
+    putOneObject();
+    
+    // grab the third
+    turnCW135();
+    delay(processSpeed * 2);
+    moveForward(220);
+    delay(processSpeed * 10);
+    Serial1.flush();
+    while (!remoteService()) {
+      //  Serial.println("wait");      
+    }
+    grabOneTube();
+    delay(processSpeed * 2);
+    moveBackward(260);
+    delay(processSpeed * 10);
+    turnCCW135();
+    delay(processSpeed * 3);
+    putOneObject();
+}
+
+
+void putOneObject() {
+    if (commandState == RED) {
+        turnCountClockwise();
+        delay(processSpeed * 2);
+        moveForward(740);
+        delay(processSpeed * 10);
+        releaseOneTube();
+        delay(processSpeed * 3);
+        changeCmdState(MOV_STOP);
+        moveBackward(740);
+        delay(processSpeed * 10);
+    } else if (commandState == GREEN) {
+        turnAround();
+        delay(processSpeed * 2);
+        moveForward(740);
+        delay(processSpeed * 10);
+        releaseOneTube();
+        delay(processSpeed * 3);
+        changeCmdState(MOV_STOP);
+        moveBackward(740);
+        delay(processSpeed * 10);
+        turnClockwise();
+    } else if (commandState == BLUE) {
+        turnCCW135();
+        delay(processSpeed * 2);
+        moveForward(740);
+        delay(processSpeed * 10);
+        releaseOneTube();
+        delay(processSpeed * 3);
+        changeCmdState(MOV_STOP);
+        moveBackward(740);
+        delay(processSpeed * 10);
+        turnCW45();
+    } else if (commandState == BLACK) {
+        turnCCW45();
+        delay(processSpeed * 2);
+        moveForward(740);
+        delay(processSpeed * 10);
+        releaseOneTube();
+        delay(processSpeed * 3);
+        changeCmdState(MOV_STOP);
+        moveBackward(740);
+        delay(processSpeed * 10);
+        turnCCW45();
+    } else if (commandState == WHITE) {
+        moveForward(740);
+        delay(processSpeed * 10);
+        releaseOneTube();
+        delay(processSpeed * 3);
+        changeCmdState(MOV_STOP);
+        moveBackward(740);
+        delay(processSpeed * 10);
+        turnCountClockwise();
+    }
+    delay(processSpeed * 2);
+    
+}
+/*
 void loop()
 {
     servoHold();
@@ -28,6 +193,7 @@ void loop()
        startSlowly();
        moveForward(30);
        delay(200);
+       practiceWithLineFinder(isOn);
     }
     int cmd = Serial1.read();
     Serial.println(cmd);
@@ -43,6 +209,7 @@ void loop()
     // stopSlowly();
     // remoteService(); 
 }
+*/
 
 
 // Task 1, Steps by Steps
